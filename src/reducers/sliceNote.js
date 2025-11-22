@@ -23,7 +23,7 @@ const reducerNote = createSlice({
       state.notes = updateNotes;
     },
     pin: (state, action) => {
-      const updateNotes = state.map((n) => {
+      const updateNotes = state.notes.map((n) => {
         if (n.id == action.payload.id) {
           const notePin = {
             ...action.payload,
