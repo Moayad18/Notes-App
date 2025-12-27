@@ -1,4 +1,4 @@
-import { Box, Stack, Typography, useTheme } from "@mui/material";
+import { Stack, Typography, useTheme } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import CloseIcon from "@mui/icons-material/Close";
@@ -16,12 +16,8 @@ const Note = ({
   return (
     <Grid
       sx={{
-        color:
-          theme.palette.mode == "light" ? "black" : theme.palette.text.primary,
-        backgroundColor:
-          theme.palette.mode == "light"
-            ? "rgb(254 249 195 )"
-            : theme.palette.primary.main,
+        color: theme.palette.text.primary,
+        backgroundColor: theme.palette.background.paper,
         borderRadius: "10px",
         height: "200px",
         width: "250px",
