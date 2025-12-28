@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, useTheme } from "@mui/material";
+import { Grid, useTheme } from "@mui/material";
 import { NavLink } from "react-router";
 import { Button } from "@mui/material";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
@@ -29,8 +29,10 @@ function Navbar({ change }) {
     },
   };
   const { user } = useSelector((state) => state.loginAuth);
+  console.log(user);
   return (
-    <Container
+    <Grid
+      container
       maxWidth="xl"
       style={{
         display: "flex",
@@ -38,7 +40,7 @@ function Navbar({ change }) {
         alignItems: "center",
       }}
     >
-      <nav style={{ display: "flex", gap: "10px", fontSize: "24px" }}>
+      <Grid size={{ xs: 6 }} style={{ display: "flex", fontSize: "24px" }}>
         <Button component={NavLink} sx={sharedLinkStyle} to={"/"}>
           Home
         </Button>
@@ -50,7 +52,7 @@ function Navbar({ change }) {
             Login
           </Button>
         )}
-      </nav>
+      </Grid>
       {theme.palette.mode == "light" ? (
         <div
           onClick={() => {
@@ -75,7 +77,7 @@ function Navbar({ change }) {
           <LightModeOutlinedIcon />
         </div>
       )}
-    </Container>
+    </Grid>
   );
 }
 

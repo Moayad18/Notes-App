@@ -191,7 +191,12 @@ const MainContent = () => {
             />
           </Stack>
 
-          <Grid container spacing={6}>
+          <Grid
+            container
+            spacing={4}
+            justifyContent={{ xs: "center", md: "flex-start" }}
+            sx={{ mb: "30px" }}
+          >
             {sortedNotes.map((note) => {
               return (
                 <Note

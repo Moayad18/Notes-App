@@ -4,7 +4,7 @@ import { Button, Card, Form, Alert } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../reducers/sliceLoginAuth";
-import { useTheme } from "@mui/material";
+import { Grid, useTheme } from "@mui/material";
 const Login = () => {
   const dispatch = useDispatch();
   const { isLoading, error } = useSelector((state) => state.loginAuth);
@@ -38,52 +38,53 @@ const Login = () => {
     }
   }, [user, navigate, redirectPath]);
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
+    <Grid
+      container
+      justifyContent={"center"}
+      alignItems={"center"}
+      display={"flex"}
+      sx={{ mt: 10 }}
     >
-      <Card
-        className="mt-5"
-        style={{
-          width: "500px",
-          backgroundColor: theme.palette.background.paper,
-          color: theme.palette.text.primary,
-        }}
-      >
-        <Card.Body>
-          <h2 className="text-center mb-4">Login</h2>
-          {errors && <Alert variant="danger"> {errors}</Alert>}
+      <Grid size={{ xs: 11, sm: 10, lg: 6, xl: 4 }} maxWidth={"600px"}>
+        <Card
+          className="mt-5"
+          style={{
+            backgroundColor: theme.palette.background.paper,
+            color: theme.palette.text.primary,
+          }}
+        >
+          <Card.Body>
+            <h2 className="text-center mb-4">Login</h2>
+            {errors && <Alert variant="danger"> {errors}</Alert>}
 
-          <Form onSubmit={handleSubmit}>
-            <Form.Group>
-              <Form.Label htmlFor="emaill">Email</Form.Label>
-              <Form.Control type="email" id="emaill" ref={emailRef} />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label htmlFor="password">Password</Form.Label>
-              <Form.Control type="password" id="password" ref={passwordRef} />
-            </Form.Group>
-            <Button
-              variant="primary"
-              type="submit"
-              className="w-100 mt-2"
-              disabled={isLoading}
-            >
-              Login
-            </Button>
-          </Form>
-          <div className="w-100 text-center mt-3">
-            <Link to={"/forget-password"}>Forget Password</Link>
-          </div>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        Need an account? <Link to={"/signup"}>Sign Up</Link>
-      </div>
-    </div>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group>
+                <Form.Label htmlFor="emaill">Email</Form.Label>
+                <Form.Control type="email" id="emaill" ref={emailRef} />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label htmlFor="password">Password</Form.Label>
+                <Form.Control type="password" id="password" ref={passwordRef} />
+              </Form.Group>
+              <Button
+                variant="primary"
+                type="submit"
+                className="w-100 mt-2"
+                disabled={isLoading}
+              >
+                Login
+              </Button>
+            </Form>
+            <div className="w-100 text-center mt-3">
+              <Link to={"/forget-password"}>Forget Password</Link>
+            </div>
+          </Card.Body>
+        </Card>
+        <div className="w-100 text-center mt-2">
+          Need an account? <Link to={"/signup"}>Sign Up</Link>
+        </div>
+      </Grid>
+    </Grid>
   );
 };
 

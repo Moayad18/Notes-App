@@ -23,6 +23,7 @@ const Note = ({
         width: "250px",
         padding: "10px",
         boxShadow: " 0 4px 6px -1px #0000001a",
+        placeContent: "center",
       }}
       className="note"
     >
